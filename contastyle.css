@@ -1,7 +1,7 @@
  body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #0f0f2d, #1b1b3a);
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
       color: white;
       padding: 40px;
     }
@@ -87,7 +87,7 @@
   top: 0;
   width: 100%;
   background: transparent;
-  padding: 1px 15px;
+  padding: 5px 27px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,146 +124,142 @@
 }
 
 
-
-.menu-toggle {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  z-index: 1300;
-}
-
-.menu-toggle div {
-  width: 30px;
-  height: 3px;
-  background: white;
-  transition: all 0.3s ease;
-}
-
-.nav-overlay {
+ 
+.top-bar {
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
-  width: 300px;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.95);
-  transform: translateX(100%);
-  transition: transform 0.4s ease;
-  z-index: 1050;
-  padding: 30px 20px;
-  box-shadow: -4px 0 20px rgba(0, 255, 255, 0.2);
-}
-
-.nav-overlay.active {
-  transform: translateX(0);
-}
-
-.nav-content {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px #00fff0;
 }
 
-.nav-content a {
-  color: #00ffff;
-  font-size: 1.3em;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 10px;
-  border-radius: 8px;
+/* Team section with horizontal layout */
+.team {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 30px;
+  padding: 150px 20px 60px; /* top padding accounts for navbar height */
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  overflow-x: auto; /* allows horizontal scroll if screen is too small */
+}
+
+//* Glowing aura scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 213, 0.6);
+  border-radius: 10px;
+  box-shadow: 
+    0 0 10px rgba(0, 255, 213, 0.7),
+    0 0 20px rgba(0, 255, 213, 0.5),
+    0 0 30px rgba(0, 255, 213, 0.3);
   transition: all 0.3s ease;
 }
-.nav-content a:hover {
-  background: rgba(0, 255, 255, 0.1);
-  transform: translateX(5px);
-  color: white;
-}
 
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 213, 0.9);
+  box-shadow: 
+    0 0 15px rgba(0, 255, 213, 0.9),
+    0 0 25px rgba(0, 255, 213, 0.7),
+    0 0 35px rgba(0, 255, 213, 0.5);
+}
+/* Gradient Text for Logo */
 .gradient-text {
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
-  background: linear-gradient(270deg, #ff6ec4, #7873f5, #1fd1f9, #ff6ec4);
+  background: linear-gradient(270deg, #00fff0, #00ff94);
   background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: animateGradient 5s ease infinite;
-  margin-bottom: 30px;
 }
 
+/* Navigation Links */
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00fff0;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  position: relative;
+  padding: 10px;
+}
+
+.arrow {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dropbtn:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  min-width: 160px;
+  box-shadow: 0 0 10px #00fff0;
+  z-index: 1;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #ffffff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #00fff0;
+  color: #000000;
+}
+
+/* Animations */
 @keyframes animateGradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Dark background when menu is active */
-.overlay-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1049;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.overlay-bg.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.dropbtn {
-  background: none;
-  color: #00ffff;
-  font-size: 1.3em;
-  font-weight: 600;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.arrow {
-  font-size: 0.8em;
-  transition: transform 0.3s ease;
-}
-
-/* Dropdown content with initial hidden state */
-.dropdown-content {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  flex-direction: column;
-  margin-top: 1px;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-content {
-  max-height: 200px; /* enough to show all links */
-  opacity: 1;
-}
-
-/* Arrow rotation on hover */
-.dropdown:hover .arrow {
-  transform: rotate(180deg);
-}
-.dropdown-content a {
-  padding-left: 20px;
-  color: #ccc;
-  text-decoration: none;
-  font-size: 1.1em;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  text-shadow: 0 0 5px #00ffff55;
-}
-
-.dropdown-content a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
