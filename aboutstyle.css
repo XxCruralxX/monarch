@@ -1,0 +1,266 @@
+body {
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+
+  
+}
+ h3 {
+            margin: -50;
+
+      top:400px;
+      text-align: center;
+      color: GOld;
+      margin-bottom: 500px;
+      font-size: 2.5em;
+    }
+.about-section {
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeIn 2s ease;
+}
+
+.about-heading {
+  font-size: 3em;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #00fff0, #00ff94);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s infinite alternate;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2em;
+  line-height: 1.8em;
+}
+
+.highlight {
+  color: #00ffd5;
+  font-weight: bold;
+}
+
+.social-links {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.social-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px #00ffe5;
+}
+
+.fb { background: #3b5998; }
+.ig { background: #e1306c; }
+.wa { background: #25d366; }
+
+.social-btn:hover {
+  box-shadow: 0 0 20px #00ffe5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00fff0; }
+  to { text-shadow: 0 0 20px #00fff0, 0 0 30px #00ff94; }
+}
+}
+  
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px #00fff0;
+}
+
+/* Team section with horizontal layout */
+.team {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 30px;
+  padding: 150px 20px 60px; /* top padding accounts for navbar height */
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  overflow-x: auto; /* allows horizontal scroll if screen is too small */
+}
+
+/* Optional: style horizontal scroll */
+.team::-webkit-scrollbar {
+  height: 8px;
+}
+.team::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+/* Gradient Text for Logo */
+.gradient-text {
+  font-size: 2em;
+  font-weight: bold;
+  background: linear-gradient(270deg, #00fff0, #00ff94);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateGradient 5s ease infinite;
+}
+
+/* Navigation Links */
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00fff0;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  position: relative;
+  padding: 10px;
+}
+
+.arrow {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dropbtn:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  min-width: 160px;
+  box-shadow: 0 0 10px #00fff0;
+  z-index: 1;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #ffffff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #00fff0;
+  color: #000000;
+}
+
+/* Animations */
+@keyframes animateGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+*2. Team Member Cards:*
+
+css
+/* Team Section */
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 60px 20px;
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+}
+
+/* Member Card */
+.member, .memberl {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  margin: 15px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #ffffff;
+  text-align: center;
+}
+
+.member:hover, .memberl:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+/* Member Name */
+.member h2, .memberl h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #00fff0;
+}
+
+/* Contact Info */
+.info {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+/* Social Links */
+.socials a {
+  display: inline-block;
+  margin: 5px;
+  color: #00fff0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: #ffffff;
+}
