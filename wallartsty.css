@@ -1,0 +1,401 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #020b16; /* clean dark night */
+  overflow-y: scroll;  /* Always show vertical scrollbar */
+  overflow-x: hidden;  /* Hide horizontal scrollbar */
+}
+::-webkit-scrollbar {
+  width: 12px;
+  background: rgba(255, 255, 255, 0.1); /* transparent background */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 200, 255, 0.5); /* glowing blue */
+  border-radius: 10px;
+  box-shadow: 0 0 8px 3px rgba(100, 200, 255, 0.7);
+  backdrop-filter: blur(5px); /* frosted effect */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 200, 255, 0.8);
+  box-shadow: 0 0 12px 5px rgba(100, 200, 255, 1);
+}
+
+
+.slider {
+   height: 600px; /* fixed height */
+  background: #111; /* just so you see the space */
+  margin-bottom: 50px; 
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(0, 183, 255, 0.4),
+    0 0 25px rgba(0, 183, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+
+.slide img {
+  display: block;
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+.product-table {
+   margin-top: 850px !important;   
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto 60px;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.3),
+    0 0 15px rgba(0, 183, 255, 0.3);
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.product-table thead tr {
+  background: rgba(0, 183, 255, 0.4);
+  text-align: left;
+}
+
+.product-table th, .product-table td {
+  padding: 15px 20px;
+}
+
+.product-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease;
+}
+
+.product-table tbody tr:hover {
+  background: rgba(0, 183, 255, 0.1);
+}
+
+.buy-btn {
+  display: inline-block;
+  background: #0abde3;
+  color: #222;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 0 8px #0abde3;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buy-btn:hover {
+  background: #089ac9;
+  box-shadow: 0 0 15px #089ac9;
+  color: white;
+  cursor: pointer;
+}
+.preview-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.preview-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 183, 255, 0.7);
+}
+
+.preview-box img {
+  max-width: 400px;
+  max-height: 400px;
+  border-radius: 10px;
+}
+.preview-btn {
+  background: transparent;
+  border: 2px solid #0abde3;
+  color: #0abde3;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 8px;
+}
+
+.preview-btn:hover {
+  background: #0abde3;
+  color: #fff;
+  box-shadow: 0 0 10px #0abde3;
+}
+
+/* Overlay Animation */
+.preview-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.preview-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.7),  /* cyan */
+    0 0 40px rgba(0, 255, 0, 0.3);    /* green */
+  animation: popUp 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  padding: 1px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideDown 0.7s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.top-bar h1 {
+  margin: 0;
+}
+
+.top-bar nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.top-bar nav a:hover {
+  color: #ffea00;
+}
+
+@keyframes slideDown {
+  from { top: -100px; opacity: 0; }
+  to { top: 0; opacity: 1; }
+}
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+.menu-toggle {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1300;
+}
+
+.menu-toggle div {
+  width: 30px;
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1050;
+  padding: 30px 20px;
+  box-shadow: -4px 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.nav-overlay.active {
+  transform: translateX(0);
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-content a {
+  color: #00ffff;
+  font-size: 1.3em;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.nav-content a:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateX(5px);
+  color: white;
+}
+
+.gradient-text {
+  font-size: 1.8em;
+  font-weight: bold;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #1fd1f9, #ff6ec4);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateGradient 5s ease infinite;
+  margin-bottom: 30px;
+}
+
+@keyframes animateGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Dark background when menu is active */
+.overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1049;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-bg.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropbtn {
+  background: none;
+  color: #00ffff;
+  font-size: 1.3em;
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow {
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown content with initial hidden state */
+.dropdown-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  flex-direction: column;
+  margin-top: 5px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  max-height: 200px; /* enough to show all links */
+  opacity: 1;
+}
+
+/* Arrow rotation on hover */
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+.dropdown-content a {
+  padding-left: 20px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 0 5px #00ffff55;
+}
+
+.dropdown-content a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}

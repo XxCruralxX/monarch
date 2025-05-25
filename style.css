@@ -1,0 +1,286 @@
+body {
+  background: #001;
+  margin: 0;
+ font-family: sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sec{
+    display: flex;
+  align-items: center;
+
+  margin: -2;
+    position: fixed;
+
+}
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideDown 0.7s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.top-bar h1 {
+  margin: 0;
+}
+
+.top-bar nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.top-bar nav a:hover {
+  color: #ffea00;
+}
+
+@keyframes slideDown {
+  from { top: -100px; opacity: 0; }
+  to { top: 0; opacity: 1; }
+}
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bubbles span {
+  position: absolute;
+  bottom: -50px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: rise 10s linear infinite;
+  left: calc(100vw * var(--i) / 30);
+  animation-duration: calc(3s + var(--i) * 0.5s);
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+.gradient-text {
+      width: 100%;
+      font-size: 1.5em;
+  margin: 0;
+
+  font-size: 3em;
+  font-weight: bold;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #1fd1f9, #ff6ec4);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateGradient 5s ease infinite;
+}
+
+@keyframes animateGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.p (
+text-color: gold;
+)
+  
+
+.typing-box {
+  padding: -20px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+
+ 
+  white-space: nowrap;
+  border-right: 3px solid white;
+  animation: typing 1s steps(50, end), blink 3s step-end infinite;
+}
+
+.typing-text {
+  font-size: 2em;
+ 
+  color: white;
+    text-decoration: bold;
+
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 23ch }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.slider {
+  position: relative;
+  width: 300px;
+  height: 400px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  animation: switch 12s infinite;
+  animation-delay: calc(var(--i) * 4s);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  opacity: 0;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes switch {
+  0%   { opacity: 0; transform: scale(0.95); z-index: 1; }
+  
+  5%   { opacity: 1; transform: scale(1); z-index: 5; }
+  30%  { opacity: 1; transform: scale(1); }
+  35%  { opacity: 0; transform: scale(1.05); z-index: 1; }
+  100% { opacity: 0; }
+}
+header {
+  padding: 100px;
+  text-align: center;
+}
+
+.horizontal-scroll-section {
+    margin-top: 30px; /* Pushes it down */
+  padding: 20px;
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 30px;
+}
+
+.product-card {
+
+  flex: 0 0 auto;
+  width: 250px;
+  background: #222;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  scroll-snap-align: start;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.5);
+}
+
+.product-card a {
+  display: block;
+  border-radius: 8px;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: block;
+  pointer-events: auto;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  /* existing styles... */
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0; /* ensures animation starts hidden */
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.3s; }
+.product-card:nth-child(3) { animation-delay: 0.5s; }
+
+.dropbtn {
+  background: none;
+  color: #00ffff;
+  font-size: 1.3em;
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow {
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown content with initial hidden state */
+.dropdown-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  flex-direction: column;
+  margin-top: 5px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  max-height: 200px; /* enough to show all links */
+  opacity: 1;
+}
+
+/* Arrow rotation on hover */
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+.dropdown-content a {
+  padding-left: 20px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 0 5px #00ffff55;
+}
+
+.dropdown-content a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}

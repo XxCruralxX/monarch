@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%201.04.55%20PM.jpeg?v=1748123011140" />
+
+   
+    <title>MonarchSample</title>
+    <link rel="stylesheet" href="/clostyle.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+   
+
+  
+   <div class="night-sky">
+    <!-- Generate 20 falling stars -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+  </div>
+  
+    
+    <div class="slider">
+  <div class="slide active">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%209.15.15%20AM.jpeg?v=1748103880028" alt="Image 1">
+  </div>
+  <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%2011.33.54%20AM.jpeg?v=1748111683466" alt="Image 2">
+  </div>
+  <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.34.29%20PM.jpeg?v=1748122753686" alt="Image 3">
+  </div>
+       <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.09.54%20PM.jpeg?v=1748121346085" alt="Image 4">
+  </div>
+       <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.13.49%20PM.jpeg?v=1748121346325" alt="Image 5">
+  </div>
+       <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.07.51%20PM.jpeg?v=1748121375334" alt="Image 6">
+  </div>
+       <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.16.04%20PM.jpeg?v=1748121850347" alt="Image 7">
+  </div>
+       <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.25.28%20PM.jpeg?v=1748122108919" alt="Image 8">
+  </div>
+       <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.30.43%20PM.jpeg?v=1748122396293" alt="Image 9">
+  </div>
+      <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.28.40%20PM.jpeg?v=1748122334988" alt="Image 10">
+  </div>
+      <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.25.28%20PM.jpeg?v=1748122108919" alt="Image 11">
+  </div>
+      <div class="slide">
+    <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.28.40%20PM.jpeg?v=1748122334988" alt="Image 12">
+  </div>
+      
+      
+</div>
+    
+
+    <script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+</script>
+
+<table class="product-table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Sales</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.03.14%20PM.jpeg?v=1748121346085">
+      <td>Tanjiro Wallart A3 Glass Frame</td>
+      <td>LKR.3,500</td>
+      <td>20</td>
+      <td>0</td>
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+    </tr>
+    <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.05.24%20PM.jpeg?v=1748121346383">
+      <td>Makima Wallart A3 Glass Frame</td>
+      <td>LKR.3,500</td>
+      <td>20</td>
+      <td>0</td>
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+    </tr>
+    <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.07.51%20PM.jpeg?v=1748121375334">
+      <td>Spider Man Wallart A3 Glass Frame</td>
+      <td>LKR.3,500</td>
+      <td>20</td>
+      <td>0</td>
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+      <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.13.49%20PM.jpeg?v=1748121346325">
+      <td>CR7 Wallart A3 Glass Frame</td>
+      <td>LKR.3,500</td>
+      <td>20</td>
+      <td>0</td>
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+        <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.16.04%20PM.jpeg?v=1748121850347">
+      <td>COD Ghost Wallart A3 Glass Frame</td>
+      <td>LKR.3,500</td>
+      <td>20</td>
+      <td>0</td>
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+          <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.25.28%20PM.jpeg?v=1748122108919">
+      <td>Sasuke And Naruto Wallart A4 Glass Frame</td>
+      <td>LKR.2,700</td>
+      <td>30</td>
+      <td>0</td>
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+            <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.28.40%20PM.jpeg?v=1748122334988">
+      <td>Lamborghini Huracan Wallart A4 Glass Frame</td>
+      <td>LKR.2,700</td>
+      <td>30</td>
+      <td>0</td>
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+              <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.30.43%20PM.jpeg?v=1748122396293">
+      <td>LaFerrari Wallart A4 Glass Frame</td>
+      <td>LKR.2,700</td>
+      <td>30</td>
+      <td>0</td>
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+                <tr data-img="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.34.29%20PM.jpeg?v=1748122753686">
+      <td>Mobkey D. Luffy Wallart A4 Glass Frame</td>
+      <td>LKR.2,700</td>
+      <td>30</td>
+      <td>0</td>
+      
+      <td>
+        <button class="preview-btn">Preview</button>
+        <a href="#" class="buy-btn">Buy Now</a>
+      </td>
+  </tbody>
+</table>
+    
+<div class="preview-overlay" id="previewOverlay">
+  <div class="preview-box">
+    <img id="previewImage" src="" alt="Preview">
+  </div>
+</div>
+
+    <script>
+  const previewBtns = document.querySelectorAll(".preview-btn");
+  const overlay = document.getElementById("previewOverlay");
+  const previewImage = document.getElementById("previewImage");
+
+  previewBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const row = btn.closest("tr");
+      const imgSrc = row.getAttribute("data-img");
+      previewImage.src = imgSrc;
+      overlay.style.display = "flex";
+    });
+  });
+
+  overlay.addEventListener("click", () => {
+    overlay.style.display = "none";
+  });
+</script>
+   
+    <div class="top-bar">
+  <div class="menu-toggle" id="menuToggle">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="nav-overlay" id="navOverlay">
+  <div class="nav-content">
+    <h1 class="gradient-text">MonarchLK Sample</h1>
+    <a href="index.html">Home</a>
+    <a href="#">About</a>
+    <a href="contact.html">Contact</a>
+   <div class="dropdown">
+  <button class="dropbtn">
+    Shop <span class="arrow">▼</span>
+  </button>
+  <div class="dropdown-content">
+    <a href="clothing.html">Clothes</a>
+    <a href="wallart.html">Wall Arts</a>
+    <a href="watches.html">Watches</a>
+  </div>
+      
+    
+  </div>
+</div>
+<div class="overlay-bg" id="overlayBg"></div>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navOverlay = document.getElementById("navOverlay");
+
+  menuToggle.addEventListener("click", () => {
+    navOverlay.classList.toggle("active");
+  });
+
+  // Optional: close overlay when clicking outside links
+  navOverlay.addEventListener("click", (e) => {
+    if (e.target === navOverlay) {
+      navOverlay.classList.remove("active");
+    }
+  });
+</script>
+     </body>
+</html>

@@ -1,0 +1,269 @@
+ body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f0f2d, #1b1b3a);
+      color: white;
+      padding: 40px;
+    }
+
+    h1 {
+            margin: -50;
+
+      top:400px;
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 500px;
+      font-size: 2.5em;
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+.memberl {
+      background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.4); /* Soft gold */
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 165, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.4); /* Gold glow */
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
+}
+
+    .memberl:hover {
+      transform: translateY(-5px);
+    }
+
+.memberl h2 {
+      margin-top: 0;
+      color: gold;
+    }
+    .member {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-5px);
+    }
+
+    .member h2 {
+      margin-top: 0;
+      color: #00ffff;
+    }
+
+    .info {
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+
+    .socials a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #0ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover {
+      color: #0f0;
+    }
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  padding: 1px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideDown 0.7s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.top-bar h1 {
+  margin: 0;
+}
+
+.top-bar nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.top-bar nav a:hover {
+  color: #ffea00;
+}
+
+@keyframes slideDown {
+  from { top: -100px; opacity: 0; }
+  to { top: 0; opacity: 1; }
+}
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+.menu-toggle {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1300;
+}
+
+.menu-toggle div {
+  width: 30px;
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1050;
+  padding: 30px 20px;
+  box-shadow: -4px 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.nav-overlay.active {
+  transform: translateX(0);
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-content a {
+  color: #00ffff;
+  font-size: 1.3em;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.nav-content a:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateX(5px);
+  color: white;
+}
+
+.gradient-text {
+  font-size: 1.8em;
+  font-weight: bold;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #1fd1f9, #ff6ec4);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateGradient 5s ease infinite;
+  margin-bottom: 30px;
+}
+
+@keyframes animateGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Dark background when menu is active */
+.overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1049;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-bg.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.dropbtn {
+  background: none;
+  color: #00ffff;
+  font-size: 1.3em;
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow {
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown content with initial hidden state */
+.dropdown-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  flex-direction: column;
+  margin-top: 1px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  max-height: 200px; /* enough to show all links */
+  opacity: 1;
+}
+
+/* Arrow rotation on hover */
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+.dropdown-content a {
+  padding-left: 20px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 0 5px #00ffff55;
+}
+
+.dropdown-content a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
