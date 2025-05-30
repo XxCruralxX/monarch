@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   background: #020b16; /* clean dark night */
   overflow-y: scroll;  /* Always show vertical scrollbar */
   overflow-x: hidden;  /* Hide horizontal scrollbar */
@@ -26,6 +25,21 @@ body {
 }
 
 
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+}
+.mySlides {
+  display: none;
+}
+.fade {
+  animation: fade 1.5s ease-in-out;
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
 .slider {
    height: 600px; /* fixed height */
   background: #111; /* just so you see the space */
@@ -398,4 +412,261 @@ body {
 .dropdown-content a:hover {
   color: #ffffff;
   text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+.size-chart th, .size-chart td {
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #0ff;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.3);
+  transition: transform 0.3s;
+}
+
+.size-chart td:hover {
+  transform: scale(1.05);
+  color: #fff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  cursor: pointer;
+}
+
+
+.chart-container.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+.chart-container {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  text-align: center;
+  margin: 60px auto;
+  padding: 20px;
+  animation: popIn 0.8s ease forwards;
+}
+
+.chart-title {
+  font-size: 2em;
+  color: #0ff;
+  text-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  margin-bottom: 20px;
+  animation: pulseGlow 3s infinite alternate;
+}
+
+.size-chart {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  animation: neonAura 5s infinite alternate;
+}
+
+.size-chart th, .size-chart td {
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 500;
+}
+
+.size-chart thead {
+  background: linear-gradient(90deg, #0ff, #f0f, #0f0);
+  color: black;
+  animation: gradientFlow 8s linear infinite;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes neonAura {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(255, 0, 255, 0.3),
+                0 0 60px rgba(0, 255, 150, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(255, 0, 255, 0.5),
+                0 0 60px rgba(0, 255, 255, 0.4),
+                0 0 80px rgba(0, 255, 150, 0.5);
+  }
+}
+
+@keyframes pulseGlow {
+  0% { text-shadow: 0 0 10px #0ff; }
+  100% { text-shadow: 0 0 25px #0ff, 0 0 40px #0ff; }
+}
+
+
+
+
+/* Ad Banner Styling */
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px; /* Hidden off-screen */
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 3s linear forwards;
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+/* Progress Bar Animation (8 seconds) */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Ad Message Styling */
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+
+
+#toggleAdsBtn {
+  background: #ff0077;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleAdsBtn:hover {
+  background: #ff3399;
+}
+
+#toggleAdsBtn {
+  background: #ff0077;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleAdsBtn:hover {
+  background: #ff3399;
 }
