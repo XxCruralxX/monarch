@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=1280">
+    <link rel="icon" href="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%201.04.55%20PM.jpeg?v=1748123011140" />
+
+   
+    <title>MonarchSample</title>
+    <link rel="stylesheet" href="/watchestyle.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+        <button id="toggleAdsBtn">Hide Ads</button>
+
+   <div id="adBanner" class="ad-banner">
+  <div class="ad-content">
+    <p class="ad-message">🚨 <strong>Watches</strong> dropping <span>June 30</span> — Don’t miss it! ⌚</p>
+    <div class="progress-bar"></div>
+  </div>
+</div>
+
+    <script>const toggleAdsBtn = document.getElementById('toggleAdsBtn');
+let adsVisible = true;
+
+toggleAdsBtn.addEventListener('click', () => {
+  adsVisible = !adsVisible;
+  if (!adsVisible) {
+    document.getElementById('adBanner').style.display = 'none';
+    toggleAdsBtn.textContent = 'Show Ads';
+  } else {
+    document.getElementById('adBanner').style.display = 'block';
+    toggleAdsBtn.textContent = 'Hide Ads';
+  }
+});</script>
+  
+ <script>
+    window.embeddedChatbotConfig = {
+        chatbotId: "tv1_F8i69in1TeCbnmLFX",
+        domain: "www.chatbase.co"
+    };
+</script>
+<script src="https://www.chatbase.co/embed.min.js" chatbotid="tv1_F8i69in1TeCbnmLFX" domain="www.chatbase.co" defer></script>
+
+   <div class="error-box">
+    <h1>🚧 This is Still in Development</h1>
+    <p>We're working on something awesome. Please check back soon!</p>
+  </div>
+     </body>
+</html>
