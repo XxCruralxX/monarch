@@ -2,9 +2,412 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-      color: white;
+      
       padding: 40px;
-    }
+     overflow-y: scroll;  /* Always show vertical scrollbar */
+  overflow-x: hidden;  /* Hide horizontal scrollbar */
+  color:white;
+}
+
+.ad-banner {
+  position: relative;
+  width: 100%;
+  background: rgba(0, 255, 200, 0.1);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 12px;
+  margin-top: 40px;
+  border-top: 2px solid rgba(0, 255, 255, 0.3);
+  border-bottom: 2px solid rgba(125, 0, 255, 0.3);
+  overflow: hidden;
+  z-index: 10;
+  animation: bannerGlow 3s infinite ease-in-out;
+}
+
+.ad-banner p {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.ad-banner span {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.ad-glow {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0,255,255,0.3), transparent);
+  animation: glowSwipe 4s linear infinite;
+}
+
+@keyframes bannerGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,255,255,0.4); }
+[10:16 AM, 5/25/2025] ChatGPT: 50% { box-shadow: 0 0 20px rgba(0,255,255,0.6); }
+}
+
+@keyframes glowSwipe {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+/* Ad Banner Styling */
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px; /* Hidden off-screen */
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 3s linear forwards;
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+/* Progress Bar Animation (8 seconds) */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+  
+
+
+#toggleAdsBtn {
+  background: #ff0077;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleAdsBtn:hover {
+  background: #ff3399;
+}
+
+/* Ad Banner Styling */
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px; /* Hidden off-screen */
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 3s linear forwards;
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+/* Progress Bar Animation (8 seconds) */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Ad Message Styling */
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+
+
+#toggleAdsBtn {
+  background: #ff0077;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleAdsBtn:hover {
+  background: #ff3399;
+}
+
+#toggleAdsBtn {
+  background: #ff0077;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleAdsBtn:hover {
+  background: #ff3399;
+}
+
+}
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Ad Message Styling */
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+/* Scrollbar Track */
+::-webkit-scrollbar {
+  width: 12px;
+  background: transparent;
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 213, 0.6);
+  border-radius: 10px;
+  box-shadow:
+    0 0 10px rgba(0, 255, 213, 0.7),
+    0 0 20px rgba(0, 255, 213, 0.5),
+    0 0 30px rgba(0, 255, 213, 0.3);
+  animation: auraGlow 2s infinite ease-in-out;
+  transition: background 0.3s ease;
+}
+
+/* Scrollbar Thumb Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 213, 0.9);
+  box-shadow:
+    0 0 15px rgba(0, 255, 213, 0.9),
+    0 0 25px rgba(0, 255, 213, 0.7),
+    0 0 35px rgba(0, 255, 213, 0.5);
+}
+/* Keyframes for Aura Glow Animation */
+@keyframes auraGlow {
+  0% {
+    box-shadow:
+      0 0 10px rgba(0, 255, 213, 0.7),
+      0 0 20px rgba(0, 255, 213, 0.5),
+      0 0 30px rgba(0, 255, 213, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 15px rgba(0, 255, 213, 0.9),
+      0 0 25px rgba(0, 255, 213, 0.7),
+      0 0 35px rgba(0, 255, 213, 0.5);
+  }
+  100% {
+    box-shadow:
+      0 0 10px rgba(0, 255, 213, 0.7),
+      0 0 20px rgba(0, 255, 213, 0.5),
+      0 0 30px rgba(0, 255, 213, 0.3);
+  }
+}
+
 
     h1 {
             margin: -50;
@@ -12,18 +415,17 @@
       top:400px;
       text-align: center;
       color: #00ffff;
-      margin-bottom: 500px;
+      margin-bottom: 200px;
       font-size: 2.5em;
     }
-
-    .team {
+.team {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
+    background: transparent; /* Removes any background */
     }
-
-.memberl {
+    .memberl {
       background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 215, 0, 0.4); /* Soft gold */
   border-radius: 15px;
@@ -80,8 +482,76 @@
 
     .socials a:hover {
       color: #0f0;
+}
+.team2 {
+        display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;         /* Full width */
+  min-height: 100vh;   /* Minimum full screen height */
+  padding: 40px 20px;  /* Padding for spacing */
+  box-sizing: border-box;
     }
 
+.memberl2 {
+      background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.4); /* Soft gold */
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 165, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.4); /* Gold glow */
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
+}
+
+    .memberl2:hover {
+      transform: translateY(-5px);
+    }
+
+.memberl3 h2 {
+      margin-top: 0;
+      color: gold;
+    }
+    .member3 {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
+
+    .member3:hover {
+      transform: translateY(-5px);
+    }
+
+    .member3 h2 {
+      margin-top: 0;
+      color: #00ffff;
+    }
+
+    .info1 {
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+
+    .socials1 a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #0ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .socials1 a:hover {
+      color: #0f0;
+    }
 .top-bar {
   position: fixed;
   top: 0;
@@ -146,46 +616,9 @@
   flex-wrap: nowrap;
   gap: 30px;
   padding: 150px 20px 60px; /* top padding accounts for navbar height */
-  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   overflow-x: auto; /* allows horizontal scroll if screen is too small */
 }
 
-//* Glowing aura scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 213, 0.6);
-  border-radius: 10px;
-  box-shadow: 
-    0 0 10px rgba(0, 255, 213, 0.7),
-    0 0 20px rgba(0, 255, 213, 0.5),
-    0 0 30px rgba(0, 255, 213, 0.3);
-  transition: all 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 213, 0.9);
-  box-shadow: 
-    0 0 15px rgba(0, 255, 213, 0.9),
-    0 0 25px rgba(0, 255, 213, 0.7),
-    0 0 35px rgba(0, 255, 213, 0.5);
-}
-/* Gradient Text for Logo */
-.gradient-text {
-  font-size: 2em;
-  font-weight: bold;
-  background: linear-gradient(270deg, #00fff0, #00ff94);
-  background-size: 600% 600%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: animateGradient 5s ease infinite;
-}
 
 /* Navigation Links */
 nav a {
