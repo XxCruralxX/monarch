@@ -4,17 +4,16 @@
     
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta name="viewport" content="width=device-width,height=device-height, initial-scale=0.2" />
     <link rel="icon" href="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%201.04.55%20PM.jpeg?v=1748123011140" />
 
    
     <title>MonarchLK</title>
-    <link rel="stylesheet" href="style.css" >
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
   </head>
   <body>
    
-
      <sec>
       <div class="bubbles">
     <span style="--i:10;"></span>
@@ -32,71 +31,196 @@
        
        </sec>
 <section class="horizontal-scroll-section">
-  <a href="clothing.html" class="product-card"><img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%2012.15.08%20PM.jpeg?v=1748114793226"><h3>Clothes</h3>
-  <p>Wear Confidence - Wear Quality</p></a>
+  <a href="clothing.html" class="product-card"><img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%2012.15.08%20PM.jpeg?v=1748114793226"><h3>Clothes</h3> <p>Wear Confidence - Wear Quality</p>
+ </a>
 
   <a href="wallart.html" class="product-card"><img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%2011.33.54%20AM.jpeg?v=1748111683466"><h3>Wall Arts</h3>
   <p>Art That Reflects Distinction  </p></a>
   <a href="watches.html" class="product-card"><img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%2011.50.44%20AM.jpeg?v=1748112704330"><h3>Watches</h3>
   <p>Precision - Prestige - Presence </p></a>
-</section>
-
  
-    
-  
-     <div class="top-bar">
-    <h1 class="gradient-text">     MonarchLK   </h1>
-               
+</section>
        
-       
-    <nav>
-      <a href="#">Home</a>
-     
-      <a href="contact.html">Contact</a>
-     
-      <a href="about.html">About</a>
     
-   <div class="dropdown">
-  <button class="dropbtn">
-    Shop <span class="arrow">▼</span>
-  </button>
-  <div class="dropdown-content">
-    <a href="clothing.html">Clothes</a>
-     <a href="wallart.html">Wall Arts</a>
-     <a href="watches.html">Watches</a>
+
+<!-- NAV -->
+<div class="top-bar">
+  <h1 class="gradient-text">MonarchLK</h1>
+  <nav>
+   
+
+    <button id="signInBtn">Sign In</button>
+    <button id="signOutBtn" style="display:none;">Sign Out</button>
+    <a href="store.html">Mall</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <button id="trackBtn">Track Package</button>
     
-   
-   
-  </div>
+
+
+  </nav>
+<!-- Ad Banner -->
+
+
+</div>
+
+
+<!-- LOGIN PANEL -->
+<div id="loginPanel">
+  <div class="ring ring1"></div>
+  <div class="ring ring2"></div>
+  <div class="ring ring3"></div>
+  <form id="loginForm">
+    <h2>Sign In / Sign Up</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="button" id="togglePassword" style="margin-top: 10px;">Show</button>
+    <button type="submit">Login</button>
+    <button type="button" id="signUpBtn">Sign Up</button>
+  </form>
+</div>
+
+    <script> 
+const signInBtn = document.getElementById('signInBtn');
+const signOutBtn = document.getElementById('signOutBtn');
+const loginPanel = document.getElementById('loginPanel');
+const trackBtn = document.getElementById('trackBtn');
+const loginForm = document.getElementById('loginForm');
+const signUpBtn = document.getElementById('signUpBtn');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+
+// Show login panel
+signInBtn.addEventListener('click', () => {
+  loginPanel.classList.add('visible');
+});
+
+// Hide login panel when clicking outside
+loginPanel.addEventListener('click', e => {
+  if (e.target === loginPanel) {
+    loginPanel.classList.remove('visible');
+  }
+});
+
+// Retrieve users from localStorage or initialize empty object
+function getUsers() {
+  return JSON.parse(localStorage.getItem('users')) || {};
+}
+
+// Save users to localStorage
+function saveUsers(users) {
+  localStorage.setItem('users', JSON.stringify(users));
+}
+
+// Set current user
+function setCurrentUser(username) {
+  localStorage.setItem('currentUser', username);
+}
+
+// Get current user
+function getCurrentUser() {
+  return localStorage.getItem('currentUser');
+}
+
+// Clear current user
+function clearCurrentUser() {
+  localStorage.removeItem('currentUser');
+}
+
+// Update UI after login
+function updateUIAfterLogin(username) {
+  signInBtn.textContent = username;
+  signOutBtn.style.display = 'inline-block';
+  loginPanel.classList.remove('visible');
+}
+
+// Update UI after logout
+function updateUIAfterLogout() {
+  signInBtn.textContent = 'Sign In';
+  signOutBtn.style.display = 'none';
+}
+
+// Handle login
+loginForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value;
+  const users = getUsers();
+
+  if (users[username] && users[username].password === password) {
+    setCurrentUser(username);
+    updateUIAfterLogin(username);
+  } else {
+    alert('Incorrect username or password.');
+  }
+});
+
+// Handle sign up
+signUpBtn.addEventListener('click', () => {
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value;
+  const users = getUsers();
+
+  if (!username || !password) {
+    alert('Please enter both username and password.');
+    return;
+  }
+
+  if (users[username]) {
+    alert('Username already exists. Please choose another one.');
+    return;
+  }
+
+  users[username] = { password };
+  saveUsers(users);
+  alert('Registered successfully! You can now sign in.');
+});
+
+// Handle sign out
+signOutBtn.addEventListener('click', () => {
+  clearCurrentUser();
+  updateUIAfterLogout();
+});
+
+// Handle track package
+trackBtn.addEventListener('click', () => {
+  const currentUser = getCurrentUser();
+  if (currentUser) {
+    window.location.href = 'tp.html';
+  } else {
+    loginPanel.classList.add('visible');
+  }
+});
+
+// Initialize UI on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const currentUser = getCurrentUser();
+  if (currentUser) {
+    updateUIAfterLogin(currentUser);
+  } else {
+    updateUIAfterLogout();
+  }
+});
       
       
-      </div>
-    </nav>
-  </div>
-    
-   <div class="overlay-bg" id="overlayBg"></div>
-
-<script>
-  const menuToggle = document.getElementById("menuToggle");
-  const navOverlay = document.getElementById("navOverlay");
-
-  menuToggle.addEventListener("click", () => {
-    navOverlay.classList.toggle("active");
-  });
-
-  // Optional: close overlay when clicking outside links
-  navOverlay.addEventListener("click", (e) => {
-    if (e.target === navOverlay) {
-      navOverlay.classList.remove("active");
-    }
-  });
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  </script>
+     <script>
+    window.embeddedChatbotConfig = {
+        chatbotId: "tv1_F8i69in1TeCbnmLFX",
+        domain: "www.chatbase.co"
+    };
 </script>
-    
-    
-    
-
-   
-    
+ 
+<script src="https://www.chatbase.co/embed.min.js" chatbotid="tv1_F8i69in1TeCbnmLFX" domain="www.chatbase.co" defer></script>
 
      </body>
 </html>
