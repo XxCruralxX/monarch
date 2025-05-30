@@ -1,23 +1,448 @@
-body {
-  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
+ /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+  body {
+     overflow-y: scroll;  /* Always show vertical scrollbar */
+  overflow-x: hidden;  /* Hide horizontal scrollbar */
+  color:white;
+  animation: backgroundAnimation 10s infinite alternate;
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #0b0c1a 0%, #000010 80%);
+  overflow: hidden;
+  position: relative;
   font-family: 'Segoe UI', sans-serif;
-
-  
 }
+
+/* Stars */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+/* Generate multiple stars with different sizes, positions, and animation delays */
+.star:nth-child(1) { width: 2px; height: 2px; top: 10%; left: 20%; animation-delay: 0s; }
+.star:nth-child(2) { width: 3px; height: 3px; top: 30%; left: 50%; animation-delay: 1.5s; }
+.star:nth-child(3) { width: 1.5px; height: 1.5px; top: 60%; left: 70%; animation-delay: 0.8s; }
+.star:nth-child(4) { width: 2.5px; height: 2.5px; top: 80%; left: 10%; animation-delay: 2s; }
+.star:nth-child(5) { width: 2px; height: 2px; top: 40%; left: 85%; animation-delay: 1s; }
+
+/* Shooting star */
+.shooting-star {
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(-45deg, white, rgba(255,255,255,0));
+  opacity: 0.8;
+  border-radius: 100%;
+  animation: shooting 5s linear infinite;
+  animation-delay: 3s;
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(120vw) translateY(120vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background: rgba(255, 255, 255, 0.1); /* transparent background */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 200, 255, 0.5); /* glowing blue */
+  border-radius: 10px;
+  box-shadow: 0 0 8px 3px rgba(100, 200, 255, 0.7);
+  backdrop-filter: blur(5px); /* frosted effect */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 200, 255, 0.8);
+  box-shadow: 0 0 12px 5px rgba(100, 200, 255, 1);
+}
+.ad-banner {
+  position: relative;
+  width: 100%;
+  background: rgba(0, 255, 200, 0.1);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 12px;
+  margin-top: 40px;
+  border-top: 2px solid rgba(0, 255, 255, 0.3);
+  border-bottom: 2px solid rgba(125, 0, 255, 0.3);
+  overflow: hidden;
+  z-index: 10;
+  animation: bannerGlow 3s infinite ease-in-out;
+}
+
+.ad-banner p {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.ad-banner span {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.ad-glow {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0,255,255,0.3), transparent);
+  animation: glowSwipe 4s linear infinite;
+}
+
+@keyframes bannerGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,255,255,0.4); }
+[10:16 AM, 5/25/2025] ChatGPT: 50% { box-shadow: 0 0 20px rgba(0,255,255,0.6); }
+}
+
+@keyframes glowSwipe {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+/* Ad Banner Styling */
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px; /* Hidden off-screen */
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 3s linear forwards;
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+/* Progress Bar Animation (8 seconds) */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Ad Message Styling */
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+
+
+#toggleAdsBtn {
+  background: #ff0077;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleAdsBtn:hover {
+  background: #ff3399;
+}
+
+/* Ad Banner Styling */
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px; /* Hidden off-screen */
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 3s linear forwards;
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+/* Progress Bar Animation (8 seconds) */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+.ad-banner {
+  position: fixed;
+  top: 20%;
+  right: -400px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Visible State */
+.ad-banner.show {
+  right: 20px;
+  opacity: 1;
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.ad-content span {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, #0ff, #0f0);
+  border-radius: 5px;
+  animation: progress 8s linear forwards;
+}
+/* Progress Bar Animation */
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Ad Message Styling */
+.ad-message strong {
+  color: #ff2d75;
+  text-shadow: 0 0 5px #ff2d75, 0 0 10px #ff5fa2;
+  font-weight: 800;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+
+
+#toggleAdsBtn {
+  background: #ff0077;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleAdsBtn:hover {
+  background: #ff3399;
+}
+
+#toggleAdsBtn {
+  background: #ff0077;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#toggleAdsBtn:hover {
+  background: #ff3399;
+}
+
  h3 {
             margin: -50;
 
       top:400px;
       text-align: center;
       color: GOld;
-      margin-bottom: 500px;
+      margin-bottom: 20px;
       font-size: 2.5em;
     }
 .about-section {
-  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   color: white;
   padding: 80px 20px;
   text-align: center;
@@ -105,19 +530,103 @@ body {
   flex-wrap: nowrap;
   gap: 30px;
   padding: 150px 20px 60px; /* top padding accounts for navbar height */
-  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
   overflow-x: auto; /* allows horizontal scroll if screen is too small */
 }
 
-/* Optional: style horizontal scroll */
-.team::-webkit-scrollbar {
-  height: 8px;
-}
-.team::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 255, 0.3);
-  border-radius: 5px;
+
+.memberl2 {
+    background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+
+      background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.4); /* Soft gold */
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 165, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.4); /* Gold glow */
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
 }
 
+    .memberl2:hover {
+      transform: translateY(-5px);
+    }
+
+.memberl3 h2 {
+      margin-top: 0;
+      color: gold;
+    }
+    .member3 {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
+
+    .member3:hover {
+      transform: translateY(-5px);
+    }
+
+    .member3 h2 {
+      margin-top: 0;
+      color: #00ffff;
+    }
+
+    .info {
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+
+    .socials a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #0ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .socials1 a:hover {
+      color: #0f0;
+    }
+.memberl {
+      background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.4); /* Soft gold */
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 165, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.4); /* Gold glow */
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
+}
+
+    .memberl:hover {
+      transform: translateY(-5px);
+    }
+.info {
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+
+    .socials1 a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #0ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .socials1 a:hover {
+      color: #0f0;
+    }
 /* Gradient Text for Logo */
 .gradient-text {
   font-size: 2em;
@@ -207,60 +716,138 @@ nav a:hover {
 }
 
 
-*2. Team Member Cards:*
-
-css
-/* Team Section */
 .team {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 60px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    background: transparent; /* Removes any background */
+    }
+    .memberl {
   background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
-}
-
-/* Member Card */
-.member, .memberl {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.4); /* Soft gold */
   border-radius: 15px;
   padding: 20px;
   width: 250px;
-  margin: 15px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 165, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.4); /* Gold glow */
   backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #ffffff;
-  text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.member:hover, .memberl:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    .memberl:hover {
+      transform: translateY(-5px);
+    }
+
+.memberl h2 {
+      margin-top: 0;
+      color: gold;
+    }
+    .member {
+      background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-5px);
+    }
+
+    .member h2 {
+      margin-top: 0;
+      color: #00ffff;
+    }
+
+    .info {
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+
+    .socials a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #0ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover {
+      color: #0f0;
+}
+.team2 {
+        display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;         /* Full width */
+  min-height: 100vh;   /* Minimum full screen height */
+  padding: 40px 20px;  /* Padding for spacing */
+  box-sizing: border-box;
+    }
+
+.memberl2 {
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  border: 1px solid rgba(255, 215, 0, 0.4); /* Soft gold */
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 165, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.4); /* Gold glow */
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
 }
 
-/* Member Name */
-.member h2, .memberl h2 {
-  margin-bottom: 10px;
-  font-size: 1.5em;
-  color: #00fff0;
-}
+    .memberl2:hover {
+      transform: translateY(-5px);
+    }
 
-/* Contact Info */
-.info {
-  margin: 5px 0;
-  font-size: 1em;
-}
+.memberl3 h2 {
+      margin-top: 0;
+      color: gold;
+    }
+    .member3 {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease;
+    }
 
-/* Social Links */
-.socials a {
-  display: inline-block;
-  margin: 5px;
-  color: #00fff0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+    .member3:hover {
+      transform: translateY(-5px);
+    }
 
-.socials a:hover {
-  color: #ffffff;
-}
+    .member3 h2 {
+      margin-top: 0;
+      color: #00ffff;
+    }
+
+    .info1 {
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+
+    .socials1 a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #0ff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .socials1 a:hover {
+      color: #0f0;
+    }
