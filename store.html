@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=1280,height=1280initial-scale=1" />
+    <link rel="icon" href="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%201.04.55%20PM.jpeg?v=1748123011140" />
+
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+    <title>MonarchLK</title>
+    <link rel="stylesheet" href="storestyle.css" />
+    <script src="script.js" defer></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+  .price-sticker {
+       position: absolute;
+  top: 15px;
+  left: -25px;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: 'Orbitron', sans-serif;
+  color: #a0ff00;  /* bright lime green */
+  background: rgba(160, 255, 0, 0.15);
+  border: 1.5px solid rgba(160, 255, 0, 0.4);
+  border-radius: 10px 5px 10px 5px;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 0 8px rgba(160, 255, 0, 0.7),
+    inset 0 0 10px rgba(160, 255, 0, 0.2);
+  transform: rotate(-10deg);
+  user-select: none;
+  animation: subtlePulse 3.5s ease-in-out infinite;
+  z-index: 10;
+  overflow: visible;
+}
+
+/* Pulsing glow */
+@keyframes subtlePulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(160, 255, 0, 0.6),
+      inset 0 0 10px rgba(160, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(160, 255, 0, 0.9),
+      inset 0 0 15px rgba(160, 255, 0, 0.3);
+  }
+}
+top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: rotateDots 4s linear infinite;
+}
+
+/* Dots around ring */
+.price-tag::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  box-shadow:
+    0 -30px 0 #a0ff00,
+    21px -21px 0 #a0ff00,
+    30px 0 0 #a0ff00,
+    21px 21px 0 #a0ff00,
+    0 30px 0 #a0ff00,
+    -21px 21px 0 #a0ff00,
+    -30px 0 0 #a0ff00,
+    -21px -21px 0 #a0ff00;
+  animation: pulseDots 4s ease-in-out infinite;
+}
+
+/* Rotate ring */
+@keyframes rotateDots {
+  0% { transform: translate(-50%, -50%) rotate(0deg);}
+  100% { transform: translate(-50%, -50%) rotate(360deg);}
+}
+
+/* Dots pulse */
+@keyframes pulseDots {
+  0%, 100% {
+    box-shadow:
+      0 -30px 2px #a0ff00,
+      21px -21px 2px #a0ff00,
+      30px 0 2px #a0ff00,
+      21px 21px 2px #a0ff00,
+      0 30px 2px #a0ff00,
+      -21px 21px 2px #a0ff00,
+      -30px 0 2px #a0ff00,
+      -21px -21px 2px #a0ff00;
+  }
+  50% {
+    box-shadow:
+      0 -30px 6px #d0ff40,
+      21px -21px 6px #d0ff40,
+      30px 0 6px #d0ff40,
+      21px 21px 6px #d0ff40,
+      0 30px 6px #d0ff40,
+      -21px 21px 6px #d0ff40,
+      -30px 0 6px #d0ff40,
+      -21px -21px 6px #d0ff40;
+  }
+}
+
+/* Aura ring container */
+.price-tag::before {
+  content: '';
+  position: absolute;
+
+
+</style>
+  </head>
+ <body>
+  
+   
+   
+   <button id="scrollBtn" title="Scroll Down">↓</button>
+   <script>
+   const scrollBtn = document.getElementById('scrollBtn');
+
+  function updateButton() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+
+    if (scrollTop + clientHeight >= scrollHeight - 10) {
+      scrollBtn.textContent = '↑'; // near bottom, show up arrow
+    } else {
+      scrollBtn.textContent = '↓'; // otherwise down arrow
+    }
+  }
+
+  scrollBtn.addEventListener('click', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+
+    if (scrollTop + clientHeight >= scrollHeight - 10) {
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Scroll down by one viewport
+      window.scrollBy({ top: clientHeight, behavior: 'smooth' });
+    }
+  });
+
+  window.addEventListener('scroll', updateButton);
+  window.addEventListener('load', updateButton);
+
+   
+   
+   
+   </script>
+   <div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+  <div class="shooting-star"></div>
+   <div class="shooting-star"></div>
+   <div class="shooting-star"></div>
+   <div class="shooting-star"></div>
+<div class="shooting-star"></div>
+  <header>
+    <h1 class="store-title">MonarchLK</h1>
+    <button id="hamburger" aria-label="Toggle Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav id="navMenu" class="nav-menu">
+     
+       <h1 class="gradient-text">MonarchLK</h1>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+   
+      
+    </nav>
+    
+  </header>
+
+  <main>
+    <section class="product-grid">
+      <!-- Repeated product cards with sample text -->
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%2012.48.09%20PM.jpeg?v=1748116295603" alt="Product 1" />
+        <h2>
+Howard White Colour Oversized Tee</h2>
+        <span class="flash-deal">⚡ Limited Stock</span>
+
+        <span class="price-sticker">LKR.1,700</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%201.10.37%20PM.jpeg?v=1748117748100" alt="Product 2" />
+        <h2>Front White Color Regular Tee 2</h2>
+        <span class="price-sticker">LKR.1,700</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%201.50.40%20PM.jpeg?v=1748119961319" alt="Product 3" />
+        <h2>Custom Shirt Printing</h2>
+        <span class="price-sticker">LKR.2,250</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.09.54%20PM.jpeg?v=1748121346085" alt="Product 4" />
+        <h2>GTA 6 Wallart A3 Glass Frame</h2>
+        <span class="price-sticker">LKR.3,500</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.03.14%20PM.jpeg?v=1748121346085" alt="Product 5" />
+        <h2>Tanjiro Wallart A3 Glass Frame</h2>
+        <span class="price-sticker">LKR.3,500</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.13.49%20PM.jpeg?v=1748121346325" alt="Product 6" />
+        <h2>CR7 Wallart A3 Glass Frame</h2>
+        <span class="price-sticker">LKR.3,500</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.05.24%20PM.jpeg?v=1748121346383" alt="Product 7" />
+        <h2>Makima Wallart A3 Glass Frame</h2>
+        <span class="price-sticker">LKR.3.500</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.07.51%20PM.jpeg?v=1748121375334" alt="Product 8" />
+        <h2>Spider Man Wallart A3 Glass Frame</h2>
+        <span class="price-sticker">LKR.3,500</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+       <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.16.04%20PM.jpeg?v=1748121850347" alt="Product 8" />
+        <h2>COD Ghost Wallart A3 Glass Frame</h2>
+        <span class="price-sticker">LKR.3,500</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.25.28%20PM.jpeg?v=1748122108919" alt="Product 8" />
+        <h2>Sasuke And Naruto Wallart A4 Glass Frame</h2>
+        <span class="price-sticker">LKR.2,700</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.28.40%20PM.jpeg?v=1748122334988" alt="Product 8" />
+        <h2>Lamborghini Huracan Wallart A4 Glass Frame</h2>
+        <span class="price-sticker">LKR.2,700</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.30.43%20PM.jpeg?v=1748122396293" alt="Product 8" />
+        <h2>LaFerrari Wallart A4 Glass Frame</h2>
+        <span class="price-sticker">LKR.2,700</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://cdn.glitch.global/9e7c54ef-8b7b-4012-8c11-8dcac666d01f/WhatsApp%20Image%202025-05-24%20at%202.34.29%20PM.jpeg?v=1748122753686" alt="Product 8" />
+        <h2>Monkey D. Luffy Wallart A4 Glass Frame</h2>
+        <span class="price-sticker">LKR.2,700</span>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+     
+    </section>
+  </main>
+
+<script>const modal = document.getElementById("paymentModal");
+const btn = document.getElementById("buy-btn");
+const span = document.querySelector(".close");
+
+btn.onclick = () => {
+  modal.style.display = "block";
+};
+
+span.onclick = () => {
+  modal.style.display = "none";
+};
+
+window.onclick = e => {
+  if (e.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+document.getElementById("paymentForm").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("Payment processed (Demo)");
+  modal.style.display = "none";
+});</script>
+
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+
+    // Close menu on nav link click
+    navMenu.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
